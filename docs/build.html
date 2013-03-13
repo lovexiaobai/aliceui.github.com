@@ -214,7 +214,11 @@ publish:
     @rm -f ${tmpfile}
 </pre>
 
-<p>这样用 <code>make publish</code> 就会部署到内部提供的静态站点服务上，访问的路径为 <code>http://arale.alipay.im/alipay-css/box</code> 。</p>
+<p>完成后在模块根目录使用 <code>make publish</code> 命令就能部署到内部提供的静态站点服务上，访问的路径为 <code>http://arale.alipay.im/alipay-css/box</code> 。</p>
+
+<blockquote>
+<p>注意，Makefile 文件的缩进一律用 Tab，否则会报错。</p>
+</blockquote>
 <h2 id="%E5%BC%80%E5%8F%91%E6%9F%90%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%A0%B7%E5%BC%8F">开发某页面的样式</h2>
 <p>这里你将会知道如何依赖和打包 alice 模块。</p>
 
