@@ -35,12 +35,14 @@
     seajs.config({ alias: {} })
 
     // for alice
+    var array = [];
     for(var dep in data.dependencies) {
         // 如果依赖的是样式模块
         if (data.dependencies[dep].indexOf('.css') > 0) {
-            seajs.use(dep);
+            array.push(dep);
         }
     }
+    seajs.use(array);
 
   })();
 </script>
@@ -68,10 +70,10 @@
                 <ol class="main-nav">
                     <li><a href="/">首页</a></li>
                     <li><a href="../docs/framework.html">基础框架</a></li>
-                    <li><a href="../docs/widget.html">通用组件库</a></li>
+                    <li><a href="../docs/widget.html">通用样式库</a></li>
                     <li><a href="../docs/javascript.html">JavaScript</a></li>
                     <li><a href="../docs/start.html">开始使用</a></li>
-                    <li><a href="../docs/build.html">建设组件和样式库</a></li>
+                    <li><a href="../docs/build.html">构建模块和样式库</a></li>
                     <li><a href="../docs/rule.html">规范和最佳实践</a></li>
                     <li><a href="../docs/tool.html">工具</a></li>
                 </ol>
@@ -122,7 +124,7 @@ Alice 的 base.css 是结合支付宝开发经验，借鉴 <a href="http://necol
 <p>Rei（读音为“丽”）是支付宝的 iconfont 集，是一种把图标放入自定义字体中，然后使用字体图标来替代普通图标的技术。同时，Rei也是动漫女神。</p>
 
 <p>字体图标具有良好的兼容性，矢量，规范，减少图片请求，适应性强等特点，大量先进的网站（包括 github 等）正在使用这种技术。
-Alice 全面使用了 iconfont 技术，使得所有的通用组件都不会产生图片请求，并且也获得了良好的兼容性和通用性。</p>
+Alice 全面使用了 iconfont 技术，使得所有的通用样式模块都不会产生图片请求，并且也获得了良好的兼容性和通用性。</p>
 <div class="highlight"><pre><code class="xml"><span class="tag">&lt;<span class="title">i</span> <span class="attribute">class</span>=<span class="value">"iconfont"</span> <span class="attribute">title</span>=<span class="value">"灯泡"</span>&gt;</span>&amp;#x00E3;<span class="tag">&lt;/<span class="title">i</span>&gt;</span>
 </code></pre></div>
 <p>Rei 目前涵盖了网站常用各类图标约 70 多个，兼容包括 <code>ie6/7/8</code> 在内的各主流浏览器，你可以自由的在页面中使用它。</p>

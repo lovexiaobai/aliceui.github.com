@@ -35,12 +35,14 @@
     seajs.config({ alias: {} })
 
     // for alice
+    var array = [];
     for(var dep in data.dependencies) {
         // 如果依赖的是样式模块
         if (data.dependencies[dep].indexOf('.css') > 0) {
-            seajs.use(dep);
+            array.push(dep);
         }
     }
+    seajs.use(array);
 
   })();
 </script>
@@ -68,10 +70,10 @@
                 <ol class="main-nav">
                     <li><a href="/">首页</a></li>
                     <li><a href="../docs/framework.html">基础框架</a></li>
-                    <li><a href="../docs/widget.html">通用组件库</a></li>
+                    <li><a href="../docs/widget.html">通用样式库</a></li>
                     <li><a href="../docs/javascript.html">JavaScript</a></li>
                     <li><a href="../docs/start.html">开始使用</a></li>
-                    <li><a href="../docs/build.html">建设组件和样式库</a></li>
+                    <li><a href="../docs/build.html">构建模块和样式库</a></li>
                     <li><a href="../docs/rule.html">规范和最佳实践</a></li>
                     <li><a href="../docs/tool.html">工具</a></li>
                 </ol>
@@ -91,15 +93,15 @@
 <p>Alice 作为 Arale 的一部分，离不开 Arale 体系下的 spm 和 nico 两大工具，
 使用方式也大同小异。另外 Alice 还产出和使用了一些工具来帮助开发。</p>
 
-<p>Alice 目前源文件大多是纯 css 代码，但我们不排斥二次编译的 css 语言（比如stylus、less、sass等），
-目前 <a href="http://aliceui.org/select">alice.select</a> 和 <a href="http://aliceui.org/nav">alice.nav</a> 这两个组件的源码就是用 stylus 写的。
+<p>Alice 目前源文件大多是纯 CSS 代码，但我们不排斥二次编译的 CSS 语言（比如 stylus、less、sass 等），
+目前 <a href="http://aliceui.org/select">alice.select</a> 和 <a href="http://aliceui.org/nav">alice.nav</a> 这两个模块的源码就是用 stylus 写的。
 我们希望有更多业界优秀的工具和语言参与到 Alice 的样式世界中来。</p>
 
 <hr/>
 <h2 id="spm-包管理">Spm - 包管理</h2>
 <p>Spm 是 CMD 社区的构建和包管理工具，在 1.6 及以前的版本都是为 JavaScript 服务的。
 我们针对样式模块的特点研究出了一套在 CMD 生态圈中如何管理和使用样式的方案，
-并在 spm@1.7+ 中实现了很多重要功能。相关 issue 可以看下 <a href="https://github.com/spmjs/spm/issues/645">#645</a>。
+并在版本 1.7+ 中实现了很多重要功能。相关 issue 可以看下 <a href="https://github.com/spmjs/spm/issues/645">#645</a>。
 您会对 spm 对样式的支持有更多的了解。</p>
 
 <p>spm2 之后的版本会对前面的版本做支持，基本使用方式和目前的版本保持一致。</p>
@@ -126,7 +128,7 @@ $ spm deploy    &#47;&#47; 部署到开发机器上
 
 <p><a href="http://lab.lepture.com/nico/">nico 主页</a></p>
 <h2 id="peaches-雪碧图">Peaches - 雪碧图</h2>
-<p>虽然 Alice 中不推荐在通用组件中使用图片背景，但是在业务线的开发中不能避免的会碰到需要图片才能实现的需求。
+<p>虽然 Alice 中不推荐在通用模块中使用图片背景，但是在业务线的开发中不能避免的会碰到需要图片才能实现的需求。
 痛苦的合成雪碧图技术就成了前端必不可少的技能之一，所以我们有了 Peaches 这样的工具来帮助我们。</p>
 
 <p>Peaches 是支付宝前端工程师 @蔡伦 同学开发的，是一个 CSS 雪碧图编译工具。</p>

@@ -2,7 +2,7 @@
 <html lang="zh">
     <head>
         <meta charset="UTF-8">        
-        <title>Alice - 通用组件库</title>
+        <title>Alice - 通用样式库</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="generator" content="nico 0.2.4" />
         <link type="image/x-icon" href="../static/css/favicon.ico" rel="icon">
@@ -35,12 +35,14 @@
     seajs.config({ alias: {} })
 
     // for alice
+    var array = [];
     for(var dep in data.dependencies) {
         // 如果依赖的是样式模块
         if (data.dependencies[dep].indexOf('.css') > 0) {
-            seajs.use(dep);
+            array.push(dep);
         }
     }
+    seajs.use(array);
 
   })();
 </script>
@@ -68,10 +70,10 @@
                 <ol class="main-nav">
                     <li><a href="/">首页</a></li>
                     <li><a href="../docs/framework.html">基础框架</a></li>
-                    <li><a href="../docs/widget.html">通用组件库</a></li>
+                    <li><a href="../docs/widget.html">通用样式库</a></li>
                     <li><a href="../docs/javascript.html">JavaScript</a></li>
                     <li><a href="../docs/start.html">开始使用</a></li>
-                    <li><a href="../docs/build.html">建设组件和样式库</a></li>
+                    <li><a href="../docs/build.html">构建模块和样式库</a></li>
                     <li><a href="../docs/rule.html">规范和最佳实践</a></li>
                     <li><a href="../docs/tool.html">工具</a></li>
                 </ol>
@@ -86,7 +88,7 @@
                     <li><a href="#"><i class="iconfont" title="单箭头右">&#x00E5;</i></a></li>
                 </script>
                 <div class="content-area">
-                    <h1>通用组件库</h1>
+                    <h1>通用样式库</h1>
                     <div class="content"><blockquote>
 <p>Life is like a box of chocolate. 
 <em>「 Forrest Gump 」1994</em></p>

@@ -2,7 +2,7 @@
 <html lang="zh">
     <head>
         <meta charset="UTF-8">        
-        <title>Alice - 建设组件和样式库</title>
+        <title>Alice - 构建模块和样式库</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="generator" content="nico 0.2.4" />
         <link type="image/x-icon" href="../static/css/favicon.ico" rel="icon">
@@ -35,12 +35,14 @@
     seajs.config({ alias: {} })
 
     // for alice
+    var array = [];
     for(var dep in data.dependencies) {
         // 如果依赖的是样式模块
         if (data.dependencies[dep].indexOf('.css') > 0) {
-            seajs.use(dep);
+            array.push(dep);
         }
     }
+    seajs.use(array);
 
   })();
 </script>
@@ -68,22 +70,22 @@
                 <ol class="main-nav">
                     <li><a href="/">首页</a></li>
                     <li><a href="../docs/framework.html">基础框架</a></li>
-                    <li><a href="../docs/widget.html">通用组件库</a></li>
+                    <li><a href="../docs/widget.html">通用样式库</a></li>
                     <li><a href="../docs/javascript.html">JavaScript</a></li>
                     <li><a href="../docs/start.html">开始使用</a></li>
-                    <li><a href="../docs/build.html">建设组件和样式库</a></li>
+                    <li><a href="../docs/build.html">构建模块和样式库</a></li>
                     <li><a href="../docs/rule.html">规范和最佳实践</a></li>
                     <li><a href="../docs/tool.html">工具</a></li>
                 </ol>
             </div>
             <div class="main-area">
-                <div class="side-area"><ul><li><a href="#开发一个样式组件">开发一个样式组件</a><ul><li><a href="#初始化模块">初始化模块</a></li><li><a href="#写文档和设计-html-结构">写文档和设计 Html 结构</a></li><li><a href="#编码和调试">编码和调试</a></li><li><a href="#构建和发布">构建和发布</a></li><li><a href="#源码托管和文档部署">源码托管和文档部署</a></li></ul></li><li><a href="#开发某页面的样式">开发某页面的样式</a></li><li><a href="#构建团队的样式库">构建团队的样式库</a><ul><li><a href="#支付宝前端请按以下步骤操作：">支付宝前端请按以下步骤操作：</a></li><li><a href="#注意事项">注意事项</a></li></ul></ul></div>
+                <div class="side-area"><ul><li><a href="#开发一个样式模块">开发一个样式模块</a><ul><li><a href="#初始化模块">初始化模块</a></li><li><a href="#写文档和设计-html-结构">写文档和设计 Html 结构</a></li><li><a href="#编码和调试">编码和调试</a></li><li><a href="#构建和发布">构建和发布</a></li><li><a href="#源码托管和文档部署">源码托管和文档部署</a></li></ul></li><li><a href="#开发某页面的样式">开发某页面的样式</a></li><li><a href="#构建团队的样式库">构建团队的样式库</a><ul><li><a href="#支付宝前端请按以下步骤操作：">支付宝前端请按以下步骤操作：</a></li><li><a href="#注意事项">注意事项</a></li></ul></ul></div>
                 
                 <script type="text/template" id="list-template">
                     <li><a href="#"><i class="iconfont" title="单箭头右">&#x00E5;</i></a></li>
                 </script>
                 <div class="content-area">
-                    <h1>建设组件和样式库</h1>
+                    <h1>构建模块和样式库</h1>
                     <div class="content"><blockquote>
 <p>More power comes more responsibility. <em>「 Spider Man 」2012</em></p>
 </blockquote>
@@ -98,11 +100,11 @@
 <p>本页略长，请坐稳。</p>
 
 <hr/>
-<h2 id="开发一个样式组件">开发一个样式组件</h2>
+<h2 id="开发一个样式模块">开发一个样式模块</h2>
 <p>我们的页面中总是存在的各式各样的模块化的 DOM 结构，
-我们都可以依据复用度来把其中一些组件提炼成样式模块。</p>
+都可以依据其复用度来把其中一部分代码提炼成样式模块。</p>
 <h3 id="初始化模块">初始化模块</h3>
-<p>现在我们要开发一个 box 组件。首先建立一个文件夹，并使用 <code>spm init</code> 命令进行初始化。</p>
+<p>现在我们要开发一个 box 区块模块。首先建立一个文件夹，并使用 <code>spm init</code> 命令进行初始化。</p>
 
 <pre>$ mkdir box
 $ cd box
@@ -223,7 +225,7 @@ publish:
 <p>这里你将会知道如何依赖和打包 alice 模块。</p>
 
 <p>假设我们现在收到了一个 <a href="https://my.alipay.com">我的支付宝</a> 页面的开发需求，
-拿到 psd 稿后我们发现这个页面上有很多的 alice 通用组件，也有很多的个性化的样式需求。</p>
+拿到 psd 稿后我们发现这个页面上有很多的 alice 通用模块，同时也有很多的个性化的样式需求。</p>
 
 <p>这时会需要一个我的支付宝的样式模块，命名为 myalipay ，操作步骤和上面的 box 模块类似。
 在 Alice 中，一切样式皆模块，所以这个 myalipay 其实和上面的 box 没有本质区别，
@@ -234,7 +236,7 @@ publish:
 </blockquote>
 
 <p>生成目录后，我们打开 myalipay/package.json 文件，编辑其中的 dependencies 字段。假设我们需要
-用到 alice.box、alice.nav、alice.button 三个组件。</p>
+用到 alice.box、alice.nav、alice.button 三个模块。</p>
 <div class="highlight"><pre><code class="javascript">{
   <span class="string">"name"</span>: <span class="string">"myalipay"</span>,
   <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,
@@ -268,8 +270,8 @@ publish:
 <p>当你构建出了一批样式模块后，你可能需要一个统一的地方展示和管理这些模块（类似这个<a href="http://aliceui.org/Alib">页面</a>）。
 一个维护简单使用方便的样式库对于个人开发者、团队、业务线都有很大的帮助。</p>
 
-<p>Alice 的通用组件样式库是基于支付宝视觉规范的一套模块精选集，数量和质量都会严格控制。
-更好的实践是在各小组各产品线参照通用样式库建立自己的样式精选集。（可以避免鱼龙混杂的组件池而导致的无法查找组件的问题。）</p>
+<p>Alice 的通用样式库是基于支付宝视觉规范的一套模块精选集，数量和质量都会严格控制。
+更好的实践是在各小组各产品线参照通用样式库建立自己的样式精选集。（可以避免制造出鱼龙混杂的模块池而导致的无法查找模块的问题。）</p>
 
 <p>Alice 提供了一种简单的方式帮助你在 <code>github</code> 上搭建自己的样式库。</p>
 

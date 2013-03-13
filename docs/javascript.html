@@ -35,12 +35,14 @@
     seajs.config({ alias: {} })
 
     // for alice
+    var array = [];
     for(var dep in data.dependencies) {
         // 如果依赖的是样式模块
         if (data.dependencies[dep].indexOf('.css') > 0) {
-            seajs.use(dep);
+            array.push(dep);
         }
     }
+    seajs.use(array);
 
   })();
 </script>
@@ -68,10 +70,10 @@
                 <ol class="main-nav">
                     <li><a href="/">首页</a></li>
                     <li><a href="../docs/framework.html">基础框架</a></li>
-                    <li><a href="../docs/widget.html">通用组件库</a></li>
+                    <li><a href="../docs/widget.html">通用样式库</a></li>
                     <li><a href="../docs/javascript.html">JavaScript</a></li>
                     <li><a href="../docs/start.html">开始使用</a></li>
-                    <li><a href="../docs/build.html">建设组件和样式库</a></li>
+                    <li><a href="../docs/build.html">构建模块和样式库</a></li>
                     <li><a href="../docs/rule.html">规范和最佳实践</a></li>
                     <li><a href="../docs/tool.html">工具</a></li>
                 </ol>
@@ -97,7 +99,7 @@
 
 <hr/>
 <h2 id="在-arale-中使用样式">在 Arale 中使用样式</h2>
-<p>Alice 是 Arale 整个前端解决方案的子集，有些简单页面使用 Alice 组件就可以搭建出来了，有些则需要配合 JavaScript 才能实现。那么如何在 AraleJS 中使用 Alice 呢？</p>
+<p>Alice 是 Arale 整个前端解决方案的子集，有些简单页面使用 Alice 通用模块就可以搭建出来了，有些则需要配合 JavaScript 才能实现。那么如何在 AraleJS 中使用 Alice 呢？</p>
 
 <p>在 Arale 的解决方案中，使用样式主要有两种方式。</p>
 
@@ -107,7 +109,7 @@
 <p>此方案的优点是标准，样式无闪烁，统一可控，适合所有场景（特别是纯展现型的页面。）</p>
 <div class="highlight"><pre><code class="xml"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"alice-modules.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span>&gt;</span>
 </code></pre></div>
-<p>在 Alice 中，一般可以建一个模块，通过依赖打包标准的组件，从而产出一个 CSS 文件，link 到相应的位置就可以了。</p></li>
+<p>在 Alice 中，一般可以新建一个模块，打包出一个 CSS 文件再 link 到相应的位置就可以了。</p></li>
 <li><p>使用 JavaScript 实现的 <a href="https://github.com/spmjs/spm/issues/641">importStyle</a> 功能在页面中动态插入 style 标签。</p>
 <div class="highlight"><pre><code class="javascript">require(<span class="string">'./style.css'</span>);
 </code></pre></div>
@@ -268,7 +270,7 @@ seajs.use(['$', 'arale/autocomplete/1.2.0/autocomplete'], function($, AutoComple
     }).render();
 });
 </code></pre></div><h2 id="tip">Tip</h2>
-<p><a href="http://aralejs.org/tip">Tip</a> 组件是典型的应用型组件，样式可以使用 JS 来进行载入。</p>
+<p><a href="http://aralejs.org/tip">Tip</a> 是典型的应用型组件，样式可以使用 JS 来进行载入。</p>
 
 <p>在 arale/tip/1.0.0/atip 的代码中有这样的调用：</p>
 <div class="highlight"><pre><code class="javascript">require(<span class="string">'alice/poptip/1.0.0/poptip.css'</span>);
