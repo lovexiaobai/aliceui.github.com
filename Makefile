@@ -13,8 +13,6 @@ watch:
 	@nico server -v -C $(THEME)/nico.js --watch
 
 publish: clean build-doc
-	@git checkout master
-	@git pull origin master
 	@ghp-import -b master -p _site
 
 clean:
