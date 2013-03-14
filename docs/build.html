@@ -195,8 +195,6 @@ nico 会启动一个 livereload 服务监听生成的文档页面，我们可以
 文件中加入下面的代码：</p>
 
 <pre>publish: clean build-doc
-    @git checkout master
-    @git pull origin master
     @ghp-import _site -p
 </pre>
 
