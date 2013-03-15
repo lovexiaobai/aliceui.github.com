@@ -204,8 +204,8 @@ nico 会启动一个 livereload 服务监听生成的文档页面，我们可以
 <p>如果在支付宝，可以在 <a href="http://gitlab.alibaba-inc.com">http://gitlab.alibaba-inc.com</a> 平台建立一个 group 为 alipay-css 的 git 项目（找@偏右）。
 然后在项目的 Makefile 文件中加入下面的代码：</p>
 
-<pre>name = `cat package.json | grep name | awk -F&#39;&quot;&#39; &#39;{print $$4}&#39;`
-root = `cat package.json | grep root | awk -F&#39;&quot;&#39; &#39;{print $$4}&#39;`
+<pre>name = `cat package.json | grep \&quot;name\&quot; | awk -F&#39;&quot;&#39; &#39;{print $$4}&#39;`
+root = `cat package.json | grep \&quot;root\&quot; | awk -F&#39;&quot;&#39; &#39;{print $$4}&#39;`
 html = _site
 tmpfile = tmp.tar.gz
 publish:
