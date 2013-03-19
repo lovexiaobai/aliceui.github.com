@@ -116,8 +116,8 @@ $ spm deploy    &#47;&#47; 部署到开发机器上
 <p>常用的命令基本就是这四个，更多 spm 的使用方式，请参考前面的开发教程或 Arale 的相关文档。</p>
 
 <blockquote>
-<p>注意：支付宝内部需要将 <code>~/.spm/config.json</code> 中的 sources 配置为 <code>modules.alipay.im</code>，
-其他请配置为 <code>modules.spmjs.org</code> 或自己搭建的私有源。</p>
+<p>注意：支付宝内部需要将 <code>~/.spm/config.json</code> 中的 sources 配置为 <code>[&#39;modules.alipay.im&#39;,&#39;modules.spmjs.org&#39;]</code>，
+其他请配置为 <code>&#39;modules.spmjs.org&#39;</code> 或自己搭建的私有源。</p>
 </blockquote>
 <h2 id="nico-调试-amp-文档">Nico - 调试&amp;文档</h2>
 <p>Nico 是一个 JavaScript 的静态文档生成工具，在 CMD 生态圈中被用于文档构建和 Demo 调试。它在 Alice 中的使用方式和 JS 下如出一辙。
