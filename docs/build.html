@@ -212,7 +212,7 @@ publish:
     @nico build -v -C $(THEME)&#47;nico.js
     @rm -f ${tmpfile}
     @tar --exclude=&#39;.git&#47;*&#39; -czf ${tmpfile} ${html}
-    @curl -F name=${root}&#47;${name} -F file=@${tmpfile} http:&#47;&#47;site.alipay.im&#47;repository&#47;upload&#47;arale
+    @curl -F name=${name} -F file=@${tmpfile} http:&#47;&#47;arale.alipay.im&#47;repository&#47;upload&#47;${root}
     @rm -f ${tmpfile}
 </pre>
 
